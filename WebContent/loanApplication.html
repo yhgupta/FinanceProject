@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Loan Apply</title>
+<script src="url.js"></script>
+<script src="loanApplication.js"></script>
+<script src ="http.js"></script>
+    <script src="utils.js"></script>
+</head>
+<body>
+
+
+	 <p>Please fill in your loan details:</p>
+	 <form action="" method="post">
+        <label>Enter Loan Amount: </label>
+        <input type="text" name="amount" id="amount" required />
+        <br>
+        <br>
+        
+        <label>Tenor(Years): </label>
+        <input type="text" name="repaymentTime" max=10 id="repaymentTime" required>
+        <br>
+        <br>
+        <label class=""> Type of loan: </label>
+        <select id="loanId" class="loanId" name="loanId" required>
+            <option value="">Select loan type</option>
+            <option id="1" value="vehicleLoan">Vehicle Loan</option>
+            <option id="2" value="propertyLoan">Property Loan</option>
+            <option id="3" value="jewelleryLoan">Jewellery Loan</option>
+        </select>
+		<br>
+        <br>
+        <label><b>Proof:</b></label>
+		
+    	<input type="file" name="proof1" id="proof1"  accept="image/*" onchange="previewImage(this.id)" required />
+    
+    	<label><b>Proof:</b></label>
+    		
+    		<input type="file" name="proof2" id="proof2"  accept="image/*" onchange="previewImage(this.id)"  required />
+    	
+   		<label><b>Proof</b></label>
+    		
+    		<input type="file" name="proof3" id="proof3"  accept="image/*" onchange="previewImage(this.id)"  required />
+   		<br>
+    	<br>
+		
+        <button type="submit" onclick="displayR()">Apply</button>
+	 </form>
+
+</body>
+</html>

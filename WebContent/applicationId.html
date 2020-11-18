@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Wise Detail</title>
+    <script src="url.js"></script>
+    <script src="application.js"></script>
+    <script src ="http.js"></script>
+    <script src="utils.js"></script>
+</head>
+<body>
+
+<p>Please fill in your User Id:</p>
+<form id="moreInfo" action="/applicationId" method="post">
+    <label>Enter Application ID</label>
+    <input type="text" name="applicationId" id="applicationId" onfocusout="findUserInformation(this.id)" required />
+    <p id="displayInformation"></p>
+    <p id="displayUserInformation"></p>
+    
+</form>
+
+</body>
+</html>

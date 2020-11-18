@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Apply for loan</title>
+	
+	<script src="url.js"></script>
+	<script type="text/javascript" src="userApply.js"></script>
+    <script type="text/javascript" src = "http.js"></script>
+    <script type="text/javascript" src ="utils.js"></script>
+    <script type="text/javascript" src="login.js"></script>
+</head>
+<body>	
+		<h1>Welcome! Enter User Detail</h1>
+		<label class=""><b>User Name as per PAN:</b></label> 
+		<span class="asterisk">*</span>
+		<input type="text" placeholder="" id="name" value="" autocomplete="off"  required>
+		<br>
+		<br>
+		<label for="email"><b>Email:</b></label>
+		<span class="asterisk">*</span>
+    	<input type="email" placeholder="Enter Email:" id="email" required>
+   		<br>
+    	<br>
+    	<label for="contact"><b>Phone No.</b></label>
+    	<span class="asterisk">*</span>
+     	<input type="tel" placeholder="Enter Phone number:" id="contactDetails" required>
+    	<br>
+     	<br>
+     	<label for="address" ><b>Address</b></label>
+     	<span class="asterisk">*</span>
+     	<input type="text" placeholder="Enter Address" id="address" required>
+     	<br>
+     	<br>
+     	<label id="gender"><b>Gender:</b></label>
+	 	<input type="radio" id="m" name="sex" value="Male" /><span>Male</span>
+	 	<input type="radio" id="f" name="sex" value="Female" /><span>Female</span>
+	 	<br>
+     	<br>
+     	<label for="tenor"><b>Age</b></label>
+     	<span class="asterisk">*</span>
+     	<input type="number" min="1" max="10" placeholder="" id="age" required>
+	 	<br>
+	 	<br>
+	 	<label for="bankName"><b>Bank Name:</b></label>
+    	<span class="asterisk">*</span>
+     	<input type="text" id="bankName" placeholder="Enter Bank Name:" name="bankName" required>
+     	<br>
+	 	<br>
+	 	<label for="bankBranch"><b>Bank Branch:</b></label>
+    	<span class="asterisk">*</span>
+     	<input type="text" id="bankBranch" placeholder="Enter Bank Branch:" name="bankBranch" required>
+  		<br>
+  		<br>
+	 	<label for="bankAccount"><b>Account Number:</b></label>
+    	<span class="asterisk">*</span>
+     	<input type="text" id="accountNumber" placeholder="Enter Account number:" name="accountNumber" required>
+    	<br>
+     	<br><label for="ifscCode"><b>IFSC Code:</b></label>
+    	<span class="asterisk">*</span>
+     	<input type="text" id="ifscCode" placeholder="Enter IFSC Code:" name="ifscCode"  required>
+      	<br>
+     	<br>
+     	<input type="submit" id = "apply" value="Apply" onclick="sendDataUser()" >
+     	
+
+</body>
+</html>

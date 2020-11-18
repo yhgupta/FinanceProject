@@ -1,0 +1,13 @@
+const PORT = 7979
+const HOSTNAME = "localhost"
+const BASEURL = "http://" + HOSTNAME + ":" + PORT + "/FinanceProject/"
+const VERIFY = BASEURL + "financeapi/verifyUser/"
+const USER_APPLY = BASEURL + "userApply.html?customerId="
+const LOAN_APPLICATION = BASEURL + "loanApplication.html?customerId="
+const ADD_COMPLETE_USER =  BASEURL + "financeapi/addCustomerComplete"
+const GET_LOAN_APP_DATE = BASEURL + "financeapi/getLoanApplication/date"
+const GET_LOAN_STATUS =  BASEURL + "financeapi/getLoanApplication/status"
+const ADD_LOAN_APP = BASEURL + "financeapi/addLoanApplication"
+const GET_LOAN_APP = BASEURL + "financeapi/getLoanApplication/"
+const GET_CUST_AID = BASEURL + "financeapi/getCustomerAID/"
+const APPROVE_LOAN = BASEURL + "financeapi/approveLoan"

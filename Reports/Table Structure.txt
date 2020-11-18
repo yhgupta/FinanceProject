@@ -1,0 +1,88 @@
+drop table loan;
+create table loan(
+  loanid number(3) constraint loan_pk  primary key ,
+  typeOfLoan varchar2(10) not null,
+  interestRate number(5,2) not null
+);
+
+
+drop table loanapplication;
+create table loanapplication(
+  applicationid varchar2(7) constraint app_id primary key,
+  customerid varchar2(50) constraint cust_id not null,
+  loanid number(3) not null,
+  amount number(15,3) not null,
+  repaymenttime number(2) not null,
+  appliedDate date constraint loan_applied_date not null,
+  approvedDate date constraint loan_approved_date not null,
+  applicationStatus number(3) not null
+);
+
+
+drop table customer;
+create table customer(
+  customerId varchar2(50) constraint cust_pk primary key,
+  name varchar2(50) constraint cust_name not null,
+  address varchar2(100) constraint cust_add not null,
+  contactDetails varchar2(20) constraint cust_mob not null,
+  email varchar2(30) constraint cust_email not null unique,
+  age number(3) constraint cust_age not null,
+  gender varchar2(1) constraint cust_gen not null,
+);
+
+
+drop table customerBankAccount;
+create table customerBankAccount(
+  customerId varchar2(50) primary key not null,
+  bankName varchar2(50) not null,
+	bankBranch varchar2(50) not null,
+	customerAccountNumber varchar2(20) not null,
+	IFSCcode varchar2(20) not null
+);
+
+
+drop table document;
+create table document(
+  applicationId varchar2(7) not null unique,
+  documentId blob constraint cust_document not null
+);
+
+
+drop table customerpayment;
+create table customerpayment(
+  applicationId varchar2(7) not null unique,
+  amountToBePaid number(15,3) constraint remain_amt not null,
+  amountPaidByCustomer number(15,3) constraint amount_paid not null,
+  amountPaidDate date not null,
+  verificationId varchar2(40) not null
+);
+
+
+drop table propertyLoan;
+create table propertyLoan(
+	applicationId varchar2(7),
+	propertyArea number(10,3) not null,
+	propertyType varchar2(20)
+);
+
+
+drop table jewelleryLoan;
+create table jewelleryLoan(
+	applicationId varchar2(7),
+	jewelleryWeight number(10,3) not null,
+	jewelleryType varchar2(10),
+	jewelleryCarat number(10,3) not null
+);
+
+
+drop table vehicleLoan;
+create table vehicleLoan(
+	applicationId varchar2(7),
+	vehicleNumber number(10,3) not null,
+	identityProof varchar2(30) not null
+);
+
+
+
+AKIAXWUL342C2FGN4XU5
+StFsb9Tk776+29F7J97HEdTle7VvTTR1YMa5rXJh

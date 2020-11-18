@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="url.js"></script>
+<script type="text/javascript" src="login.js"></script>
+    <script type="text/javascript" src = "http.js"></script>
+    <script type="text/javascript" src ="utils.js"></script>
+<script>
+const getImageData = (file, callback) =>{
+	const reader = new FileReader();
+	reader.addEventListener("load", function() {
+		callback(undefined ,reader.result);
+	});
+		
+	if( file ){
+		reader.readAsDataURL(file);
+	}
+}
+
+
+
+const post = (url, value,callback)=>{
+//    console.log(value)
+    let xml = getXMLHTTPObject();
+    xml.onreadystatechange = () => {
+        if( xml.readyState === 4 && xml.status === 200 ){
+            callback(undefined,xml.responseText);
+        }
+        else if( xml.readyState === 4 ){
+            callback('Could Not fetch Data', undefined)
+        }
+    }
+
+    xml.open("POST", url ,true);
+    xml.setRequestHeader("Content-Type","application/json");
+    xml.send(value);
+
+}
+
+
+const get = (url,callback)=>{
+//    console.log(value)
+    let xml = getXMLHTTPObject();
+    xml.onreadystatechange = () => {
+        if( xml.readyState === 4 && xml.status === 200 ){
+            callback(undefined,xml.responseText);
+        }
+        else if( xml.readyState === 4 ){
+            callback('Could Not fetch Data', undefined)
+        }
+    }
+
+    xml.open("GET", url ,true);
+    xml.setRequestHeader("Content-Type","application/json");
+    xml.send();
+}
+
+
+
+function getXMLHTTPObject(){
+    return new XMLHttpRequest();
+}
+
+	function previewImage(id){
+		let img = document.getElementById("preview1");
+		let file = document.getElementById(id).files[0];
+		 
+		getImageData( file, (err,data)=>{
+			if( err ){
+				console.log("Error");
+			}else{
+				let idata = {"value":data};
+				post("http://localhost:8080/FinanceProject/financeapi/image", JSON.stringify(idata), (err,imgdata) =>{
+					if( err){
+		                console.log(err);
+		            }else{
+		                console.log("value = " +  imgdata);
+		            }
+				});
+			} 
+		}) 
+			
+			 
+			/* get("http://localhost:8080/FinanceProject/financeapi/imageData", (err,data)=>{
+				if( err){
+		            console.log(err);
+		           }else{
+			           img.src = JSON.parse(data).value;
+//		            console.log("value = " +  data);
+		         }
+			}) */
+	}
+</script>
+</head>
+<body>
+<input type="file" name="file" id="file1" accept ="image/*" onchange = "previewImage(this.id)">
+<img id="preview1" width="15%" height="10%">
+</body>
+</html>

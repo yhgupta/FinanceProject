@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script type="text/javascript" src="url.js"></script>
+    <script type="text/javascript" src="login.js"></script>
+    <script type="text/javascript" src = "http.js"></script>
+    <script type="text/javascript" src ="utils.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Login</h2>
+    <p>Please fill in your User Id:</p>
+    <form id="loginId" action="" method="post" onsubmit="required()" >
+        <label>Enter PAN No.</label>
+        <input type="text" name="panCard" id="panCard" onfocusout="checkUserExistOrNot(this.id)" required />
+        <!-- <button type="submit" onclick ="redirectPage()" >Apply</button> -->
+    </form>
+</div>
+</body>
+</html>
+
